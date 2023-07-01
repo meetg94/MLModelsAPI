@@ -1,24 +1,28 @@
 from django import forms
 
-class PredictionForm(forms.Form):
-    age = forms.IntegerField(label="Age")
-    gender = forms.ChoiceField(choices=[(1, 'Male'), (2, 'Female')], label="Gender")
+class CancerPredictForm(forms.Form):
+    # Genetic Information
+    age = forms.IntegerField(min_value=1, max_value=100)
+    genetic_risk = forms.IntegerField(min_value=0, max_value=9)
+    chronic_lung_disease = forms.IntegerField(min_value=0, max_value=9)
 
-    genetic_risk = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Genetic Risk")
-    chronic_lung_disease = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Chronic Lung Disease")
+    # Gender
+    GENDER_CHOICES = [(1, "Male"), (2, "Female")]
+    gender = forms.ChoiceField(choices=GENDER_CHOICES)
 
-    coughing_of_blood = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Coughing of Blood")
-    alcohol_use = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Alcohol Use")
-    fatigue = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Fatigue")
-    wheezing = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Wheezing")
-    smoking = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Smoking")
-    passive_smoker = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Passive Smoker")
-    obesity = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Obesity")
-    dust_allergy = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Dust Allergy")
-    frequent_cold = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Frequent Cold")
-    clubbing_of_finger_nails = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Clubbing of Finger Nails")
-    shortness_of_breath = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Shortness of Breath")
-    air_pollution = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Air Pollution")
-    snoring = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Snoring")
-    balanced_diet = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Balanced Diet")
-    occupational_hazards = forms.ChoiceField(choices=[(x, x) for x in range(0, 10)], label="Occupational Hazards")
+    # Environmental Data
+    coughing_of_blood = forms.IntegerField(min_value=0, max_value=9)
+    alcohol_use = forms.IntegerField(min_value=0, max_value=9)
+    fatigue = forms.IntegerField(min_value=0, max_value=9)
+    wheezing = forms.IntegerField(min_value=0, max_value=9)
+    smoking = forms.IntegerField(min_value=0, max_value=9)
+    passive_smoker = forms.IntegerField(min_value=0, max_value=9)
+    obesity = forms.IntegerField(min_value=0, max_value=9)
+    dust_allergy = forms.IntegerField(min_value=0, max_value=9)
+    frequent_cold = forms.IntegerField(min_value=0, max_value=9)
+    clubbing_of_finger_nails = forms.IntegerField(min_value=0, max_value=9)
+    shortness_of_breath = forms.IntegerField(min_value=0, max_value=9)
+    air_pollution = forms.IntegerField(min_value=0, max_value=9)
+    snoring = forms.IntegerField(min_value=0, max_value=9)
+    balanced_diet = forms.IntegerField(min_value=0, max_value=9)
+    occupational_hazards = forms.IntegerField(min_value=0, max_value=9)
