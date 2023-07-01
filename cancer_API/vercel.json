@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "builds": [
+        { 
+            "src": "cancer_API/wsgi.py", 
+            "use": "@vercel/python", 
+            "config": { "maxLambdaSize": "50mb" } 
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)", 
+            "dest": "cancer_API/wsgi.py"
+        }
+    ]
+}
