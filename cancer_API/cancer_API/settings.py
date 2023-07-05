@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['ec2-54-203-90-125.us-west-2.compute.amazonaws.com']
 
 
 # Application definition
