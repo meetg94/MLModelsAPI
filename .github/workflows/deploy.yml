@@ -25,6 +25,7 @@ jobs:
     - name: Run tests
       run: |
         python manage.py test
+      working-directory: ./cancer_API
 
   deploy:
     needs: build-and-test
