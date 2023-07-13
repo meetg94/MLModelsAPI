@@ -26,3 +26,10 @@ class CancerPredictForm(forms.Form):
     snoring = forms.IntegerField(min_value=0, max_value=9)
     balanced_diet = forms.IntegerField(min_value=0, max_value=9)
     occupational_hazards = forms.IntegerField(min_value=0, max_value=9)
+
+    def __init__(self, *args, **kwargs):
+        initial = kwargs.pop('initial', {})
+        super().__init__(*args, **kwargs)
+        for field_name, field_value in initial.items():
+            self.fields[field_name].initial = field_value
+            
