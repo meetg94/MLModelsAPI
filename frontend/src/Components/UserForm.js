@@ -1,7 +1,8 @@
 import { useState } from "react";
-import fieldsConfig from '../fieldConfig.json';
 
-import axios from "axios";
+import fieldsConfig from '../fieldConfig.json';
+import { api, PREDICT_URL } from '../api';
+import { getCookie } from '../utils/utils.js';
 
 function UserForm() {
 
@@ -14,7 +15,8 @@ function UserForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/predict', formData)
+        api.defaults.headers.post['X-CSRFToken'] = getCookie('csrftoken');
+        api.post(PREDICT_URL, formData)
             .then(response => console.log(response))
             .catch(error => console.log(error));
     }
