@@ -1,0 +1,21 @@
+[
+    { "name": "age", "label": "Age", "min": 1, "max": 100 },
+    { "name": "gender", "label": "Gender", "options": { "1": "Male", "2": "Female" } },
+    { "name": "genetic_risk", "label": "Genetic Risk", "min": 0, "max": 9 },
+    { "name": "chronic_lung_disease", "label": "Chronic Lung Disease", "min": 0, "max": 9 },
+    { "name": "coughing_of_blood", "label": "Coughing of Blood", "min": 0, "max": 9 },
+    { "name": "alcohol_use", "label": "Alcohol Use", "min": 0, "max": 9 },
+    { "name": "fatigue", "label": "Fatigue", "min": 0, "max": 9 },
+    { "name": "wheezing", "label": "Wheezing", "min": 0, "max": 9 },
+    { "name": "smoking", "label": "Smoking", "min": 0, "max": 9 },
+    { "name": "passive_smoker", "label": "Passive Smoker", "min": 0, "max": 9 },
+    { "name": "obesity", "label": "Obesity", "min": 0, "max": 9 },
+    { "name": "dust_allergy", "label": "Dust Allergy", "min": 0, "max": 9 },
+    { "name": "frequent_cold", "label": "Frequent Cold", "min": 0, "max": 9 },
+    { "name": "clubbing_of_finger_nails", "label": "Clubbing of Finger Nails", "min": 0, "max": 9 },
+    { "name": "shortness_of_breath", "label": "Shortness of Breath", "min": 0, "max": 9 },
+    { "name": "air_pollution", "label": "Air Pollution", "min": 0, "max": 9 },
+    { "name": "snoring", "label": "Snoring", "min": 0, "max": 9 },
+    { "name": "balanced_diet", "label": "Balanced Diet", "min": 0, "max": 9 },
+    { "name": "occupational_hazards", "label": "Occupational Hazards", "min": 0, "max": 9 }
+]
