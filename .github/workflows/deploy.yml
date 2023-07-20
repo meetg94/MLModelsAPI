@@ -47,4 +47,5 @@ jobs:
 
     - name: Deploy to EC2
       run: |
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.HOST }} <<EOF
         # Add the commands to deploy your application to EC2
