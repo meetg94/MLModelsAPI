@@ -6,9 +6,9 @@ function ResultModal({ showModal, closeModal, result }) {
   return (
     <div className='modal-overlay' onClick={closeModal}>
       <div className='modal-content' onClick={(e) => e.stopPropagation()}>
+        <button className='close-button' onClick={closeModal}>X</button>
         <h3>Result</h3>
-        <p>{result}</p>
-        <button onClick={closeModal}>Close</button>
+        <p>The chances of getting lung cancer is: {result}</p>
       </div>
     </div>
   );

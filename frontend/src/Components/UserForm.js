@@ -2,12 +2,15 @@ import { useState } from "react";
 
 import fieldsConfig from '../fieldConfig.json';
 import { api, PREDICT_URL } from '../api';
-import { getCookie } from '../utils/utils.js';
+
+import ResultModal from "./ResultModal";
 
 function UserForm() {
 
     const initialFormState = fieldsConfig.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {});
     const [formData, setFormData] = useState(initialFormState);
+    const [result, setResult] = useState(null);
+    const [showModal, setShowModal] = useState(false);
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
@@ -15,9 +18,13 @@ function UserForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        api.defaults.headers.post['X-CSRFToken'] = getCookie('csrftoken');
+
         api.post(PREDICT_URL, formData)
-            .then(response => console.log(response))
+            .then(response => {
+                console.log(response)
+                setResult(response.data.prediction);
+                setShowModal(true);
+            })
             .catch(error => console.log(error));
     }
 
@@ -34,6 +41,10 @@ function UserForm() {
         });
     
         setFormData(randomData);
+    }
+
+    const closeModal = () => {
+        setShowModal(false);
     }
 
     return (
@@ -79,6 +90,7 @@ function UserForm() {
                     <button type="button" className="form-button" onClick={randomizeData}>Random Data</button>
                 </div>
             </form>
+            <ResultModal showModal={showModal} closeModal={closeModal} result={result} />
         </div>
     );
 };
